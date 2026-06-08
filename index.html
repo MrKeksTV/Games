@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumenten-Auswahl</title>
+    <style>
+        body {
+            background-color: #111827;
+            color: #f3f4f6;
+            font-family: -apple-system, sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .box {
+            background-color: #1f2937;
+            padding: 24px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h3 { margin-top: 0; color: #60a5fa; }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            background: #374151;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .btn {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h3>Ressourcen öffnen</h3>
+        <p>Wähle ein Ziel aus, das im neuen Tab geöffnet werden soll:</p>
+        
+        <div class="option">
+            <input type="radio" id="link1" name="target-link" value="https://example.com" checked>
+            <label for="link1">Dokumentation Teil 1</label>
+        </div>
+        
+        <div class="option">
+            <input type="radio" id="link2" name="target-link" value="https://example.com">
+            <label for="link2">Dokumentation Teil 2</label>
+        </div>
+
+        <button class="btn" onclick="oeffneAuswahl()">Ausgewählten Link öffnen</button>
+    </div>
+
+    <script>
+        function oeffneAuswahl() {
+            // Ermittelt, welcher Radio-Button ausgewählt ist
+            const ausgewaehlt = document.querySelector('input[name="target-link"]:checked');
+            if (ausgewaehlt) {
+                // Öffnet genau ein Fenster, da eine direkte Benutzerinteraktion vorliegt
+                window.open(ausgewaehlt.value, '_blank');
+            }
+        }
+    </script>
+
+</body>
+</html>
